@@ -1,0 +1,13 @@
+{
+  "name":    "starbound-workspace",
+  "private": true,
+  "scripts": {
+    "dev":         "pnpm --filter frontend dev",
+    "build":       "pnpm --filter frontend build",
+    "server:dev":  "cd backend && cargo run",
+    "server:build":"cd backend && cargo build --release",
+    "tauri:dev":   "cd tauri-app && cargo tauri dev",
+    "tauri:build": "cd tauri-app && cargo tauri build"
+  },
+  "workspaces": ["frontend"]
+}

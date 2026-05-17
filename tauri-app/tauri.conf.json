@@ -1,0 +1,39 @@
+{
+  "$schema":  "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "pnpm --filter frontend build",
+    "beforeDevCommand":   "pnpm --filter frontend dev",
+    "devPath":            "http://localhost:5173",
+    "distDir":            "../frontend/dist"
+  },
+  "package": {
+    "productName": "Starbound",
+    "version":     "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all":       false,
+      "shell":     { "all": false, "open": true },
+      "http":      { "all": true, "scope": ["http://localhost:3000/**"] },
+      "window":    { "all": true }
+    },
+    "bundle": {
+      "active":      true,
+      "identifier":  "com.starbound.app",
+      "icon":        ["icons/32x32.png", "icons/128x128.png"]
+    },
+    "security": { "csp": null },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height":     900,
+        "width":      1600,
+        "minWidth":   1024,
+        "minHeight":  640,
+        "resizable":  true,
+        "title":      "Starbound",
+        "decorations": true
+      }
+    ]
+  }
+}
